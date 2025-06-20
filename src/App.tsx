@@ -1,4 +1,4 @@
-import { BarChart } from './components/BarChart/BarChart';
+import { PieChart } from './components/PieChart/PieChart';
 import { dataArray, dimensions } from './helpers/variables';
 
 export const App = () => {
@@ -10,7 +10,7 @@ export const App = () => {
       justifyContent: 'center', 
       alignItems: 'center'} 
     }>
-      <BarChart 
+      <PieChart 
         data={ dataArray } 
         startDimensions={ dimensions } 
       />
