@@ -1,4 +1,4 @@
-import type { ChartData, ChartDimensions, DisplaysWidths } from "../interfaces";
+import type { ChartData, ChartDimensions, DisplaysWidths, YAxisData } from "../interfaces";
 
 export const displaysWidths: DisplaysWidths = {
     smartPhone: 500,
@@ -6,21 +6,15 @@ export const displaysWidths: DisplaysWidths = {
 }
 
 export const dataArray: ChartData = [
-    [1, 10],
-    [2, 9],
-    [3, 8],
-    [4, 4],
-    [5, 7],
-    [6, 6],
-    [7, 12],
-    [8, 10],
-    [9, 6],
-    [10, 6],
-    [11, 8],
-    [12, 8],
-    [13, 9],
-    [14, 11],
+    ['A', 20],
+    ['B', 30],
+    ['C', 40],
+    ['D', 50],
+    ['E', 60],
+    ['F', 70],
+    ['G', 80],
 ];
+export const yAxisData: YAxisData = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
 export const dimensions: ChartDimensions = {
     width: 840,

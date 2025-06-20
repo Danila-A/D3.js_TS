@@ -1,27 +1,18 @@
-import { scaleLinear } from "d3";
-import { useMemo } from "react";
+import { scaleBand, scaleLinear } from "d3";
+import { useRef } from "react";
 import type { ChartData, ChartDimensions } from "../interfaces";
+import { yAxisData } from "./variables";
 
 export const useAxisData = (data: ChartData, dimensions: ChartDimensions) => {
-    const xScale = useMemo(()=> {
-        return scaleLinear([0, data.length], [dimensions.marginLeft, dimensions.width - dimensions.marginRight]);
-    }, [dimensions]);
-    const yScale = useMemo(()=> {
-        return scaleLinear([0, data.length], [dimensions.height - dimensions.marginBottom, dimensions.marginTop]);
-    }, [dimensions]);
+    const refXAxis = useRef<SVGGElement>(null);
+    const refYAxis = useRef<SVGGElement>(null);
 
-    const xTicks = useMemo(() => {
-        return xScale.ticks().map((value) => ({
-            value,
-            offset: xScale(value),
-        }))
-    }, [dimensions]);
-    const yTicks = useMemo(() => {
-        return yScale.ticks().map((value) => ({
-            value,
-            offset: yScale(value),
-        }))
-    }, [dimensions]);
+    const xScale = scaleBand(
+        data.map((item) => item[0]), [dimensions.marginLeft, dimensions.width-dimensions.marginLeft]
+    );
+    const yScale = scaleLinear()
+        .domain([yAxisData[0], yAxisData[yAxisData.length-1]])
+        .range([dimensions.height-dimensions.marginBottom, dimensions.marginTop]);
 
-    return { xScale, yScale, xTicks, yTicks };
+    return { xScale, yScale, refXAxis, refYAxis };
 }

@@ -4,7 +4,8 @@ export interface DisplaysWidths {
     smartPhone: number;
     PC: number;
 }
-export type ChartData = [number, number][];
+export type ChartData = [string, number][];
+export type YAxisData = number[];
 export interface ChartDimensions {
     width: number;
     height: number;
@@ -14,8 +15,3 @@ export interface ChartDimensions {
     marginLeft: number;
 }
 export type CombinedChartDimensions = ChartDimensions & {boundedHeight: number; boundedWidth: number;}
-export interface Ticks {
-    value: number;
-    offset: number;
-}
-export type Scale = ScaleLinear<number, number, never>;

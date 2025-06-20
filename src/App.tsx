@@ -1,4 +1,4 @@
-import { LinePlot } from './components/LinePlot/LinePlot';
+import { BarChart } from './components/BarChart/BarChart';
 import { dataArray, dimensions } from './helpers/variables';
 
 export const App = () => {
@@ -10,7 +10,7 @@ export const App = () => {
       justifyContent: 'center', 
       alignItems: 'center'} 
     }>
-      <LinePlot 
+      <BarChart 
         data={ dataArray } 
         startDimensions={ dimensions } 
       />
